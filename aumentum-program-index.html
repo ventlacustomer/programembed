@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="http://meetapponline.azurewebsites.net/Api/ProgramList.css" />
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<!—Mustache template for a program item -->
+    <script id="programItemTemplate" type="text/html">
+        <div class="item">
+            <div class="item clearfix">
+                <div class="item-img" style="min-height: 1px;">
+                    {{#IconUrl}}
+                    <img src='{{ IconUrl }}' style="width: 120px;" />
+                    {{/IconUrl}}
+                </div>
+                <div class="item-content">
+                    <h3 class="title">{{ Title }}</h3>
+                    <ul class="meta clearfix">
+                        <li>
+                            <i class="icon fa fa-clock-o"></i>
+                            {{ StartDate }}
+                        </li>
+                        {{#Address}}
+                        <li>
+                            <i class="icon fa fa-map-marker"></i>
+                            <a target="_blank" href="http://maps.google.com/maps?q={{Latitude}},{{Longitude}}">
+                                {{ Address }}, {{ City }}
+                            </a>
+                        </li>
+                        {{/Address}}
+                        {{#Location}}
+                        <li>
+                            <i class="icon fa fa-location-arrow"></i>
+                            {{Location}}
+                        </li>
+                        {{/Location}}
+                    </ul>
+                    <p>
+                        {{ Description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </script>
+<!—the following div is the container where the program will be rendered 
+Data-auth = Your API access token
+Data-hours = 12 or 24 depending on desired hour format.
+-->
+    <div id="meetapp_programcontainer" data-auth="5HcprD4VVdMVIjzGUNAlQHUacn3CG9BJtEYc88nNAGRoO98DOa8FsHIerVCRZu7%2bwQTIzKbxB3I%3d" data-hours="12">    
+	</div>
+    <script src="http://meetapponline.azurewebsites.net/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="http://meetapponline.azurewebsites.net/Scripts/mustache.min.js"></script>
+    <script src="http://meetapponline.azurewebsites.net/Scripts/moment.min.js"></script>
+    <script src="http://meetapponline.azurewebsites.net/Api/ProgramList.js"></script>
+
+
+</body>
+</html>
